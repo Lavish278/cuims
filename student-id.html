@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#111111">
+<title>Student ID Card Preview | Demo</title>
+<style>
+:root{color-scheme:dark;--bg:#111;--panel:#292929;--muted:#a5a5a5;--green:#38c978;--red:#c91e25}
+*{box-sizing:border-box}body{margin:0;background:#111;color:#f5f5f5;font:16px/1.4 Arial,Helvetica,sans-serif}
+.viewer{width:min(100%,760px);min-height:100vh;margin:auto;padding:18px 22px 30px;background:linear-gradient(#151515,#202020)}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:4px 0 24px}.back{font-size:34px;line-height:1;color:#eee}.top-title{font-size:clamp(18px,4vw,26px);font-weight:700;display:flex;align-items:center;gap:12px}.top-title span{background:#303030;border-radius:12px;padding:8px}.actions{display:flex;gap:12px}.iconbtn{border:0;border-radius:12px;background:#303030;color:white;font-size:23px;padding:10px 14px}
+.meta{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:4px 8px 34px;color:#888}.official{background:#102c1c;color:#50d580;border-radius:28px;padding:10px 17px;font-weight:700}.official:before{content:"✓";margin-right:8px}.filehead{display:flex;align-items:center;justify-content:space-between;gap:12px;background:linear-gradient(120deg,#303030,#222);padding:22px 24px;border-radius:30px 30px 0 0}.fileleft{display:flex;align-items:center;gap:18px}.fileicon{width:72px;height:72px;background:#eee;color:#111;border-radius:17px;display:grid;place-items:center;font-size:32px}.filehead h2{font-size:23px;margin:0 0 6px}.filehead p{margin:0;color:#aaa;font-size:18px}.valid{color:#51d77c;border:1px solid #28603d;background:#173a27;padding:9px 15px;border-radius:12px;white-space:nowrap}.valid:before{content:"● ";font-size:13px}.toolbar{height:88px;background:#454545;display:flex;align-items:center;justify-content:space-around;color:#171717}.page{color:#ddd;font-size:19px}.page input{width:42px;background:transparent;border:0;border-bottom:2px solid #999;color:white;font-size:18px;text-align:center}.tool{font-size:25px}.paper{background:#fff;color:#171717;padding:clamp(20px,5vw,48px) 12px;min-height:760px;display:flex;align-items:center;justify-content:center;border-radius:0 0 30px 30px}.idcard{position:relative;width:100%;max-width:620px;border:1px solid #999;background:#fff;padding:12px 10px 0;overflow:hidden;color:#111;box-shadow:0 2px 6px #bbb}.demo-watermark{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;z-index:2;font-size:clamp(30px,8vw,68px);font-weight:900;color:#d11b22;opacity:.14;transform:rotate(-24deg);letter-spacing:4px}.cardtop{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:12px;border-bottom:1px solid #aaa;padding-bottom:8px}.university{display:flex;align-items:center;gap:8px;color:#bd2028;font-weight:900;line-height:1}.crest{width:50px;height:60px;background:#bd2028;color:white;display:grid;place-items:center;font-weight:900;text-align:center;font-size:12px}.university strong{font-size:clamp(17px,4vw,27px)}.barcode{height:52px;background:repeating-linear-gradient(90deg,#111 0 2px,transparent 2px 4px,#111 4px 5px,transparent 5px 8px);margin-bottom:5px}.uid{font-size:11px;font-weight:800;text-align:center}.uid b{color:#b21d25}.details{display:grid;grid-template-columns:112px 1fr 24px;gap:12px;padding:10px 0 7px;align-items:start}.portrait{height:126px;border:1px solid #777;padding:3px;background:#eee;display:grid;place-items:center;font-size:52px;color:#777}.fields{font-size:clamp(9px,2vw,12px);font-weight:700}.field{display:grid;grid-template-columns:115px 8px 1fr;gap:3px;margin:5px 0}.field .key{font-weight:900}.field .value{font-weight:800}.hostel{writing-mode:vertical-rl;transform:rotate(180deg);color:#207344;font-weight:900;letter-spacing:2px}.address{font-size:9px;border-top:1px solid #aaa;padding:6px 0;font-weight:700}.authority{font-size:10px;font-style:italic;padding:5px 0 10px}.cardbottom{display:grid;grid-template-columns:1fr 125px;background:#bd1017;color:white;margin:0 -10px;padding:12px 10px;font-size:10px;font-weight:700}.cardbottom .web{background:#080808;margin:-12px -10px -12px 8px;display:grid;place-content:center;text-align:center;font-size:11px}.demo-note{text-align:center;color:#bd2028;font-size:10px;font-weight:900;letter-spacing:1px;margin:5px 0}.bottom-actions{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:48px 8px 0}.bottom-actions button{min-height:100px;border:1px solid #414141;background:#242424;color:#ddd;border-radius:22px;font-size:14px}.bottom-actions button span{display:block;font-size:26px;margin-bottom:7px}.disclaimer{text-align:center;color:#aaa;font-size:12px;margin:20px 8px 0}
+@media(max-width:520px){.viewer{padding:14px 14px 24px}.meta{margin-bottom:26px}.filehead{padding:17px 15px}.fileicon{width:58px;height:58px}.filehead h2{font-size:18px}.filehead p{font-size:14px}.valid{font-size:13px;padding:7px 10px}.toolbar{height:72px}.paper{min-height:600px;padding:20px 6px}.details{grid-template-columns:82px 1fr 16px;gap:7px}.portrait{height:100px;font-size:38px}.field{grid-template-columns:85px 6px 1fr;font-size:8px}.address{font-size:7px}.cardbottom{grid-template-columns:1fr 90px;font-size:8px}.cardbottom .web{font-size:8px}.bottom-actions{gap:7px;margin-top:32px}.bottom-actions button{min-height:82px;font-size:12px}.topbar{padding-bottom:18px}}
+</style>
+</head>
+<body>
+<main class="viewer">
+<header class="topbar"><div class="back" aria-hidden="true">‹</div><div class="top-title"><span>▣</span> Student ID Card</div><div class="actions"><button class="iconbtn" aria-label="Share" onclick="sharePage()">♧</button><button class="iconbtn" aria-label="More">•••</button></div></header>
+<div class="meta"><span class="official">DEMO DOCUMENT</span><span>University ID Card Preview</span></div>
+<section class="filehead"><div class="fileleft"><div class="fileicon">▣</div><div><h2>Student ID Card</h2><p>PDF-style preview · Tap to interact</p></div></div><span class="valid">Preview</span></section>
+<nav class="toolbar" aria-label="Document controls"><div class="page">Page <input value="1" aria-label="Page number" readonly> / 1</div><span class="tool">⌄</span><span class="tool">▮</span><span class="tool">⌕</span><span class="tool">⚙</span></nav>
+<section class="paper"><article class="idcard" aria-label="Demonstration student card">
+<div class="demo-watermark">DEMO • NOT VALID</div>
+<div class="cardtop"><div class="university"><div class="crest">CU<br>DEMO</div><strong>CHANDIGARH<br>UNIVERSITY</strong></div><div><div class="barcode" aria-hidden="true"></div><div class="uid">SAMPLE UNIVERSITY ID <b>23BCSXXXXX</b></div></div></div>
+<div class="details"><div class="portrait" aria-label="Profile placeholder">👤</div><div class="fields">
+<div class="field"><span class="key">NAME</span><span>:</span><span class="value">STUDENT NAME</span></div>
+<div class="field"><span class="key">COURSE</span><span>:</span><span class="value">B.E. (CSE)</span></div>
+<div class="field"><span class="key">FATHER'S NAME</span><span>:</span><span class="value">SAMPLE NAME</span></div>
+<div class="field"><span class="key">MOTHER'S NAME</span><span>:</span><span class="value">SAMPLE NAME</span></div>
+<div class="field"><span class="key">CONTACT</span><span>:</span><span class="value">XXXXX XXXXX</span></div>
+<div class="field"><span class="key">VALID TILL</span><span>:</span><span class="value">JUN-2027</span></div>
+</div><div class="hostel">SAMPLE</div></div>
+<div class="address">ADDRESS: SAMPLE ADDRESS · CITY · STATE · PIN CODE</div>
+<div class="authority">Issuing authority — Demonstration layout only; not issued or certified by any university.</div>
+<div class="cardbottom"><div>1. This is a sample student-card layout for website demonstration.<br>2. It is not an identity document and cannot be used for verification.</div><div class="web">DEMO ONLY<br>NOT VALID</div></div>
+<div class="demo-note">UNOFFICIAL UI MOCKUP · NOT A VALID STUDENT ID</div>
+</article></section>
+<section class="bottom-actions"><button onclick="sharePage()"><span>♧</span>Share</button><button onclick="window.print()"><span>⇩</span>Save / Print</button><button onclick="document.querySelector('.paper').classList.toggle('zoom')"><span>⤢</span>Fullscreen</button><button onclick="location.reload()"><span>↻</span>Refresh</button></section>
+<p class="disclaimer">This is an independent front-end demonstration inspired by the supplied screenshot. It is not affiliated with or issued by Chandigarh University.</p>
+</main>
+<script>
+function sharePage(){if(navigator.share){navigator.share({title:'Student ID Card Demo',url:location.href}).catch(()=>{});}else if(navigator.clipboard){navigator.clipboard.writeText(location.href).then(()=>alert('Page link copied.'));}else{alert('Use your browser menu to share this page.');}}
+document.querySelector('.paper').addEventListener('click',()=>{document.querySelector('.idcard').classList.toggle('focused');});
+</script>
+<style>
+@media print{body,.viewer{background:#fff;color:#111}.topbar,.meta,.filehead,.toolbar,.bottom-actions,.disclaimer{display:none}.paper{min-height:0;padding:0}.idcard{max-width:100%;box-shadow:none}}
+.paper.zoom{min-height:85vh}.paper.zoom .idcard{transform:scale(1.04)}
+</style>
+</body>
+</html>
