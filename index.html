@@ -1,74 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#c92e31">
-  <title>CUIMS — Student Dashboard</title>
-  <link rel="stylesheet" href="style.css">
-</head>
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#c92e31"><title>CUIMS — Student Dashboard</title><link rel="stylesheet" href="style.css"></head>
 <body>
-  <!-- Demonstration UI only: not connected to the official CUIMS portal. -->
-  <nav class="top-nav">
-    <button class="hamburger" aria-label="Open menu" id="menuButton">☰</button>
-    <img class="cuims-logo" src="assets/cuims-logo.png" alt="CUIMS — Chandigarh University Information Management System">
-    <label class="search"><span>Search &amp; Bookmark your page</span><b aria-hidden="true">⌕</b></label>
-    <div class="nav-icons" aria-label="Quick navigation">
-      <button class="nav-icon" aria-label="Search">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.707 22.293l-5.969-5.969a10.016 10.016 0 1 0-1.414 1.414l5.969 5.969a1 1 0 0 0 1.414-1.414ZM10 18a8 8 0 1 1 8-8 8.009 8.009 0 0 1-8 8Z"/></svg>
-      </button>
-      <button class="nav-icon" aria-label="Notifications">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.259 16.2l-2.6-9.371A9.321 9.321 0 0 0 2.576 7.3L.565 16.35A3 3 0 0 0 3.493 20H7.1a5 5 0 0 0 9.8 0h3.47a3 3 0 0 0 2.89-3.8ZM12 22a3 3 0 0 1-2.816-2h5.632A3 3 0 0 1 12 22Zm9.165-4.395a.993.993 0 0 1-.8.395H3.493a1 1 0 0 1-.976-1.217l2.011-9.05a7.321 7.321 0 0 1 14.2-.372l2.6 9.371a.993.993 0 0 1-.162.873Z"/></svg>
-      </button>
-      <button class="nav-icon" aria-label="Learning resources">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22.2 2.163a4.992 4.992 0 0 0-4.1-1.081l-3.822.694A4 4 0 0 0 12 3.065a4 4 0 0 0-2.284-1.289L5.9 1.082A5 5 0 0 0 0 6v10.793a5 5 0 0 0 4.105 4.919l6.286 1.143a9 9 0 0 0 3.218 0l6.286-1.143A5 5 0 0 0 24 16.793V6a4.983 4.983 0 0 0-1.8-3.837ZM11 20.928c-.084-.012-.168-.026-.252-.041L4.463 19.745A3 3 0 0 1 2 16.793V6a3 3 0 0 1 3-3 3.081 3.081 0 0 1 .54.049l3.82.7A2 2 0 0 1 11 5.712Zm11-4.135a3 3 0 0 1-2.463 2.952l-6.285 1.142c-.084.015-.168.029-.252.041V5.712a2 2 0 0 1 1.642-1.968l3.821-.7A3 3 0 0 1 22 6Z"/></svg>
-      </button>
-      <button class="nav-icon" aria-label="Home">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 24H5c-2.757 0-5-2.243-5-5V9.724c0-1.665.824-3.215 2.204-4.145L9.203.855c1.699-1.146 3.895-1.146 5.594 0l7 4.724A5 5 0 0 1 24 9.724V19c0 2.757-2.243 5-5 5ZM12 1.997c-.584 0-1.168.172-1.678.517L3.322 7.237A3 3 0 0 0 2 9.724V19c0 1.654 1.346 3 3 3h14c1.654 0 3-1.346 3-3V9.724c0-.999-.494-1.929-1.321-2.486l-6.001-4.724A2.99 2.99 0 0 0 12 1.997Z"/></svg>
-      </button>
-      <button class="nav-icon" aria-label="Settings">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 24H9v-3.513a9 9 0 0 1-2.849-1.646L3.107 20.6l-3-5.2 3.043-1.755a9.1 9.1 0 0 1 0-3.29L.107 8.6l3-5.2 3.044 1.759A9 9 0 0 1 9 3.513V0h6v3.513a9 9 0 0 1 2.849 1.646L20.893 3.4l3 5.2-3.043 1.755a9.1 9.1 0 0 1 0 3.29l3.043 1.755-3 5.2-3.044-1.758A9 9 0 0 1 15 20.487Zm-4-2h2v-3.027l.751-.194a6.984 6.984 0 0 0 3.243-1.875l.543-.553 2.623 1.515 1-1.732-2.62-1.513.206-.746a7.048 7.048 0 0 0 0-3.75l-.206-.746 2.62-1.513-1-1.732-2.623 1.515-.543-.553a6.984 6.984 0 0 0-3.243-1.875L13 5.027V2h-2v3.027l-.751.194A6.984 6.984 0 0 0 7.006 7.1l-.543.553L3.84 6.134l-1 1.732 2.62 1.513-.206.746a7.048 7.048 0 0 0 0 3.75l.206.746-2.62 1.513 1 1.732 2.623-1.515.543.553a6.984 6.984 0 0 0 3.243 1.875l.751.194ZM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4Zm0-6a2 2 0 1 0 2 2 2 2 0 0 0-2-2Z"/></svg>
-      </button>
-    </div>
-    <img class="avatar profile-photo" src="assets/profile-photo.jpg" alt="Profile photo">
-  </nav>
-
-  <main class="page">
-    <section class="quick-links">
-      <a class="quick-card" href="#"><div><b>Important Links</b><small>CLICK HERE</small></div><span class="tile-icon blue" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m19 1h-14a5.006 5.006 0 0 0 -5 5v12a5.006 5.006 0 0 0 5 5h14a5.006 5.006 0 0 0 5-5v-12a5.006 5.006 0 0 0 -5-5zm-14 2h14a3 3 0 0 1 3 3v1h-20v-1a3 3 0 0 1 3-3zm14 18h-14a3 3 0 0 1 -3-3v-9h20v9a3 3 0 0 1 -3 3zm0-8a1 1 0 0 1 -1 1h-12a1 1 0 0 1 0-2h12a1 1 0 0 1 1 1zm-4 4a1 1 0 0 1 -1 1h-8a1 1 0 0 1 0-2h8a1 1 0 0 1 1 1zm-12-12a1 1 0 1 1 1 1 1 1 0 0 1 -1-1zm3 0a1 1 0 1 1 1 1 1 1 0 0 1 -1-1zm3 0a1 1 0 1 1 1 1 1 1 0 0 1 -1-1z" fill="#0284fe"/></svg></span></a>
-      <a class="quick-card" href="#"><div><b>Student Facilitation</b><small>CLICK TO VIEW</small></div><span class="tile-icon purple" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m16.395,10.122l-5.192-2.843c-.673-.379-1.473-.372-2.138.017-.667.39-1.064,1.083-1.064,1.855v5.699c0,.772.397,1.465,1.064,1.855.34.199.714.297,1.087.297.358,0,.716-.091,1.041-.274l5.212-2.854c.687-.386,1.096-1.086,1.096-1.873s-.409-1.487-1.105-1.878Zm-.961,2.003l-5.212,2.855c-.019.01-.077.042-.147-.001-.074-.043-.074-.107-.074-.128v-5.699c0-.021,0-.085.074-.128.027-.016.052-.021.074-.021.036,0,.065.016.083.026l5.192,2.844c.019.011.076.043.076.13s-.058.119-.066.125ZM12,0C5.383,0,0,5.383,0,12s5.383,12,12,12,12-5.383,12-12S18.617,0,12,0Zm0,22c-5.514,0-10-4.486-10-10S6.486,2,12,2s10,4.486,10,10-4.486,10-10,10Z" fill="#9c27b0"/></svg></span></a>
-      <a class="quick-card" href="#"><div><b>Anti Ragging</b><small>READ NOW</small></div><span class="tile-icon violet">ⓧ</span></a>
-      <a class="quick-card selected" href="#"><div><b>CU LMS</b><small>CLICK HERE</small></div><span class="cap-icon" aria-hidden="true"><svg viewBox="0 0 256 256"><path d="M249.88281,92.4707l-120-64a3.99913,3.99913,0,0,0-3.76562,0l-120,64a4.00022,4.00022,0,0,0,0,7.0586L32,113.3335v52.1206a12.03771,12.03771,0,0,0,2.3916,7.18994C42.03516,182.81494,71.37305,216,128,216c23.07129,0,41.61035-5.50977,56-12.72607V240a4,4,0,0,0,8,0V198.842a106.886,106.886,0,0,0,29.60742-26.197A12.0372,12.0372,0,0,0,224,165.4541V113.3335l25.88281-13.8042a4.00022,4.00022,0,0,0,0-7.0586ZM128,208c-52.91992,0-80.13281-30.74023-87.21289-40.1626A3.93282,3.93282,0,0,1,40,165.4541v-47.854l86.11719,45.9292a4.001,4.001,0,0,0,3.76562,0L184,134.66675v59.574C170.12451,201.86523,151.63281,208,128,208Zm88-42.5459a3.93235,3.93235,0,0,1-.78809,2.38428A97.06518,97.06518,0,0,1,192,189.37671V130.40015l24-12.8Zm-28-41.98755L129.88281,92.4707a4.00012,4.00012,0,0,0-3.76562,7.0586L179.5,128,128,155.4668,16.5,96,128,36.5332,239.5,96Z" fill="#fff"/></svg></span></a>
-      <a class="quick-card email-card" href="#"><div><b>My University Email</b><small>VIEW DETAILS</small></div><span class="tile-icon blue">✉</span></a>
-    </section>
-
-    <section class="hostel">
-      <h1>Hostel Details</h1>
-      <img class="hostel-banner" src="assets/hostel-building.jpg" alt="University hostel building">
-      <div class="details">
-        <div class="detail-row"><strong>Hostel Status</strong><span>Active</span></div>
-        <div class="detail-row"><strong>Seater</strong><span>4 Seater</span></div>
-        <div class="detail-row"><strong>Hostel Name</strong><span>NC 2</span></div>
-        <div class="detail-row"><strong>Room No</strong><span>422-B</span></div>
-        <div class="detail-row"><strong>Hostel Reporting Status</strong><span>Reported on Jul 17 2026 1:20PM</span></div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <span>Chandigarh University, Gharuan, Mohali (Punjab)</span>
-    <span>☎ Helpline: 1800 257 1800</span>
-    <span>✉ Email: studentcare@cumail.in</span>
-    <a href="#">Report a Bug</a>
-  </footer>
-  <div class="android-nav"><span>☰</span><span class="circle"></span><span>‹</span><span>♥</span></div>
-
-  <aside class="side-menu" id="sideMenu">
-    <button id="closeMenu" aria-label="Close menu">×</button>
-    <h2>CUIMS</h2>
-    <a href="#">Dashboard</a><a href="#">Important Links</a><a href="#">Student Facilitation</a><a href="#">CU LMS</a><a href="#">My University Email</a><a href="#">Hostel Details</a>
-  </aside>
-  <div class="scrim" id="scrim"></div>
-  <script src="script.js"></script>
-</body>
-</html>
+<!-- Demonstration UI only: this replica is not connected to the official CUIMS portal. -->
+<nav class="top-nav">
+<button class="hamburger" aria-label="Open menu" id="menuButton">☰</button>
+<img class="cuims-logo" src="assets/cuims-logo.webp" alt="CUIMS logo">
+<label class="search"><span>Search &amp; Bookmark your page</span><b aria-hidden="true">⌕</b></label>
+<div class="nav-icons" aria-label="Quick navigation"><button class="nav-icon" aria-label="Search">⌕</button><button class="nav-icon" aria-label="Notifications">♧</button><button class="nav-icon" aria-label="Learning resources">▤</button><button class="nav-icon" aria-label="Home">⌂</button><button class="nav-icon" aria-label="Settings">⚙</button></div>
+<img class="avatar profile-photo" src="assets/profile-photo.webp" alt="Profile photo">
+</nav>
+<main class="page">
+<section class="quick-links">
+<a class="quick-card" href="#"><div><b>Important Links</b><small>CLICK HERE</small></div><span class="tile-icon blue">▣</span></a>
+<a class="quick-card" href="#"><div><b>Student Facilitation</b><small>CLICK TO VIEW</small></div><span class="tile-icon purple">▶</span></a>
+<a class="quick-card" href="#"><div><b>Anti Ragging</b><small>READ NOW</small></div><span class="tile-icon violet">ⓧ</span></a>
+<a class="quick-card selected" href="#"><div><b>CU LMS</b><small>CLICK HERE</small></div><span class="cap-icon">🎓</span></a>
+<a class="quick-card email-card" href="#"><div><b>My University Email</b><small>VIEW DETAILS</small></div><span class="tile-icon blue">✉</span></a>
+</section>
+<section class="hostel"><h1>Hostel Details</h1><img class="hostel-banner" src="assets/hostel-building.jpg" alt="University hostel building"><div class="details">
+<div class="detail-row"><strong>Hostel Status</strong><span>Active</span></div><div class="detail-row"><strong>Seater</strong><span>4 Seater</span></div><div class="detail-row"><strong>Hostel Name</strong><span>NC 2</span></div><div class="detail-row"><strong>Room No</strong><span>422-B</span></div><div class="detail-row"><strong>Hostel Reporting Status</strong><span>Reported on Jul 17 2026 1:20PM</span></div>
+</div></section></main>
+<footer class="footer"><span>Chandigarh University, Gharuan, Mohali (Punjab)</span><span>☎ Helpline: 1800 257 1800</span><span>✉ Email: studentcare@cumail.in</span><a href="#">Report a Bug</a></footer>
+<div class="android-nav"><span>☰</span><span class="circle"></span><span>‹</span><span>♥</span></div>
+<aside class="side-menu" id="sideMenu"><button id="closeMenu" aria-label="Close menu">×</button><h2>CUIMS</h2><a href="#">Dashboard</a><a href="#">Important Links</a><a href="#">Student Facilitation</a><a href="#">CU LMS</a><a href="#">My University Email</a><a href="#">Hostel Details</a></aside><div class="scrim" id="scrim"></div>
+<script src="script.js"></script></body></html>
